@@ -1,0 +1,9 @@
+<template name="Pressy">
+  <button>Click Me</button>
+  <script>
+    QrCode.insert({})
+    console.log(QrCode.find().fetch()[0]._id);
+    console.log(QrCode.find().fetch()[0]._code);
+  </script>
+  <p>You've pressed the button {{counter}} times.</p>
+</template>
