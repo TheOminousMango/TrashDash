@@ -25,11 +25,14 @@ QrCodeSchema = new SimpleSchema({
     }
   },
 
-  createdAt: {
-    type: Date,
-    label: "Created at",
+  Expiration: {
+    type: Number,
+    label: "Expiration",
     autoValue: function() {
-      return new Date()
+      var date = new Date;
+      //60 = 1 min
+      var time = Math.round((new Date().getTime() / 1000) + 60);
+      return(time);
     }
   }
 });
