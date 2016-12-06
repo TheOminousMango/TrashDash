@@ -5,7 +5,9 @@
   </header>
   <main>
     {{> Redeem }}
-    <!-- figure out how to include if superuser only -->
-    {{> RoleSetter }}
+	
+    {{#if superuser}}
+		{{> RoleSetter }}
+	{{/if}}
   </main>
 </template>

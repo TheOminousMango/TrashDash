@@ -1,20 +1,26 @@
 <template name="RoleSetter">
-  <form id='roleForm'>
     User:
-    <input type="text" placeholder="username">
+    <textarea rows="1" placeholder="username" style="resize: none" id="username"></textarea>
     <br>
-    <!-- change to dropdown menu -->
-    <!-- setup server function to check if Meteor.user() is a superuser before making changes -->
-    Role:
-    <select>
+    Set Role:
+    <select id="role">
       <option value="player"> Player </option>
       <option value="canowner"> Can Owner </option>
       <option value="superuser"> Superuser </option>
     </select>
-    <input type="Submit">
-  </form>
-
-  <script>
-    var inputs = $("#roleForm")
-  </script>
+    <button onclick="updateUser()"> Submit </button>
+	
+	<script>
+		function updateUser() {
+			var user = $( "#username" ).val();
+			var role = $( "#role" ).val();
+			var params = {
+				user: user, role: role
+			}
+			
+			Meteor.call('SetRole', params, function(err,response) {
+				alert(response);
+			});
+		}		
+	</script>
 </template>
