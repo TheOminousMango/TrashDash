@@ -16,7 +16,6 @@ if(Meteor.isServer) {
 
   Meteor.methods({
 		Redeem: function (id) {
-		  console.log(!Meteor.user());
 		  if(!Meteor.user()) {
 			return "Please Login"
 		  } else {

@@ -4,5 +4,7 @@
   </header>
   <main>
     {{> Redeem }}
+	<script> validate("{{code}}"); </script>
+	<button onclick="Router.go('/');"> back </button>
   </main>
 </template>
