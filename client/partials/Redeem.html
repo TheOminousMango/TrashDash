@@ -1,0 +1,9 @@
+<template name="Redeem">
+  <script>
+    function validate(code) {
+      Meteor.call('Redeem', code, function(err,response) {
+        alert(response);
+      });
+    };
+  </script>
+</template>

@@ -1,3 +1,5 @@
+import { Random } from 'meteor/random'
+
 QrCode = new Meteor.Collection('qr_code');
 
 QrCode.deny({
@@ -13,18 +15,6 @@ QrCode.deny({
 });
 
 QrCodeSchema = new SimpleSchema({
-  _code: {
-    type: String,
-    label: "Content",
-    autoValue: function() {
-      var content = "";
-      for(var i = 0; i < 32; i++) {
-            content += Math.round(Math.random());
-      }
-      return content;
-    }
-  },
-
   Expiration: {
     type: Number,
     label: "Expiration",

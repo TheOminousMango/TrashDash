@@ -1,16 +1,11 @@
 <template name="HomeLayout">
   <header>
+    {{> loginButtons}} {{firstName}}
     <h1> Home Page </h1>
-    {{> loginButtons}}
   </header>
   <main>
-    <div class="billboard">
-      <h2> Noice </h2>
-    </div>
-    <form action="/log_test" method="post">
-      <input type="text" name="user">
-      <input type="text" name="password">
-      <input type="submit">
-    </form>
+    {{> Redeem }}
+    <!-- figure out how to include if superuser only -->
+    {{> RoleSetter }}
   </main>
 </template>

@@ -1,0 +1,20 @@
+<template name="RoleSetter">
+  <form id='roleForm'>
+    User:
+    <input type="text" placeholder="username">
+    <br>
+    <!-- change to dropdown menu -->
+    <!-- setup server function to check if Meteor.user() is a superuser before making changes -->
+    Role:
+    <select>
+      <option value="player"> Player </option>
+      <option value="canowner"> Can Owner </option>
+      <option value="superuser"> Superuser </option>
+    </select>
+    <input type="Submit">
+  </form>
+
+  <script>
+    var inputs = $("#roleForm")
+  </script>
+</template>

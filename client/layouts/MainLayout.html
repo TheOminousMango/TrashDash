@@ -1,13 +1,8 @@
 <template name="MainLayout">
   <header>
-    <h1> Main Page </h1>
-    {{> loginButtons}}
+    {{> loginButtons}} {{firstName}}
   </header>
   <main>
-    {{> Template.dynamic template=main}}
+    {{> Redeem }}
   </main>
-</template>
-
-<template name="Test">
-    Ayo
 </template>
