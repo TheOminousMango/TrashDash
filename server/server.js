@@ -13,6 +13,10 @@ if(Meteor.isServer) {
     if(!this.userId) return null;
     return Meteor.users.find({_id:this.userId});
   });
+  
+  Meteor.publish('leaderboard', function() {
+	return Meteor.users.find({role:"player"}, { sort: { score: -1 }, fields: {'role':1, 'points': 1, 'emails.address': 1}});
+  });
 
   Meteor.methods({
 		Redeem: function (id) {
