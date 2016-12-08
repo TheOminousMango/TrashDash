@@ -44,12 +44,10 @@
 			var users = Meteor.users.find().fetch().sort(sort_by('points', true, parseInt));
 			for(var i = 0; i < Meteor.users.find().fetch().length; i++) {
 				var user = users[i];
-				if(user.role == "player") {
-					p += 1;
-					$( "#scrollable-content" ).append( "<p>" +  p + ": " + user.emails[0].address + "	(" + user.points + ")" + "</p>" );
-					if(user._id == Meteor.user()._id) {
-						$( "#footer" ).html((p) + ": " + Meteor.user().emails[0].address + " (" + Meteor.user().points + ")");
-					}
+				p += 1; 
+				$( "#scrollable-content" ).append( "<p>" +  p + ": " + user.emails[0].address + "	(" + user.points + ")" + "</p>" );
+				if(user._id == Meteor.user()._id) {
+					$( "#footer" ).html((p) + ": " + Meteor.user().emails[0].address + " (" + Meteor.user().points + ")");
 				}
 			}
 		}

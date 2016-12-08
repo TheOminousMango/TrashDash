@@ -1,7 +1,6 @@
 import { Meteor } from 'meteor/meteor'
 
 Accounts.onCreateUser(function(options, user) {
-	console.log("user created");
 	user.role = "player";
 	user.points = 0;
 	return user;
@@ -15,7 +14,7 @@ if(Meteor.isServer) {
   });
   
   Meteor.publish('leaderboard', function() {
-	return Meteor.users.find({role:"player"}, { sort: { score: -1 }, fields: {'role':1, 'points': 1, 'emails.address': 1}});
+	return Meteor.users.find({role:"player"}, { sort: { score: -1 }, fields: {'points': 1, 'emails.address': 1}});
   });
 
   Meteor.methods({

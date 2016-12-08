@@ -1,0 +1,48 @@
+<template name="Map">
+  <style>
+	#map {
+		height: 400px;
+		width: 100%;
+	}
+  </style>
+    <div id="map"></div>
+    <script>
+	  function plot(x,y,icon,map) {
+		var point = {lat: x, lng: y};
+		var marker = new google.maps.Marker({
+          position: point,
+		  icon: icon,
+          map: map
+        });
+		marker.addListener('click', function() {
+          map.setZoom(18);
+          map.setCenter(marker.getPosition());
+        });
+		var infowindow = new google.maps.InfoWindow;
+		marker.addListener('mouseover', function() {
+		  var geocoder = new google.maps.Geocoder;
+		  geocoder.geocode({'location': point}, function(results, status) {
+			  infowindow.setContent(results[1].formatted_address);
+			  infowindow.open(map, marker);
+		  });
+        });
+		
+		marker.addListener('mouseout', function() {
+			infowindow.close();
+		});
+	  }
+	
+	
+      function initMap() {
+		var map = new google.maps.Map(document.getElementById('map'), {
+			zoom: 10,
+			center: {lat: 43, lng: -76}
+		  });
+        plot(43.042347, -76.1482379, "normal.png", map);
+		plot(43.0500059, -76.1490658, "full.png", map);
+      }
+    </script>
+    <script async defer
+    src="https://maps.googleapis.com/maps/api/js?AIzaSyDJxrfBFjAf2JHJ3VHFaEw-4dDe8xf0StA&callback=initMap">
+    </script>
+</template>

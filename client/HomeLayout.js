@@ -8,7 +8,10 @@ Template.HomeLayout.helpers({
   },
   
   superuser: function() {
-	  if(Meteor.user().role == "superuser") return true;
-	  else return false;
+	return Meteor.user().role == "superuser";
+  },
+  
+  player: function() {
+	  return Meteor.user().role == "player";
   }
 });

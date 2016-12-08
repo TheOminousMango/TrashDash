@@ -27,9 +27,11 @@
 	
     {{#if superuser}}
 		{{> RoleSetter }}
+		<br><br>
+		{{> Map }}
+	{{/if}}	
+	{{#if player}}
+		{{> Leaderboard }}
 	{{/if}}
-	
-	{{> Leaderboard }}
-	
   </main>
 </template>
