@@ -1,0 +1,14 @@
+<template name="CanViewer">
+	<div id="viewCan">
+		<!-- show can data -->
+	</div>
+	
+	<script>
+		var cans = Can.find().fetch();
+		$("#viewCan").append("<b><u> My Cans </u></b> <ul>");
+		for(var i = 0; i < cans.length; i++) {
+			$("#viewCan").append("<li>" + cans[i].can_name + "</li>");
+		}
+		$("viewCan").append("</ul>");
+	</script>
+</template>

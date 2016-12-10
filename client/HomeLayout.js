@@ -13,5 +13,9 @@ Template.HomeLayout.helpers({
   
   player: function() {
 	  return Meteor.user().role == "player";
+  },
+  
+  canowner: function() {
+	  return Meteor.user().role == "canowner";
   }
 });

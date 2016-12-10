@@ -28,10 +28,17 @@
     {{#if superuser}}
 		{{> RoleSetter }}
 		<br><br>
+		{{> CanCreator }}
+		<br><br>
 		{{> Map }}
 	{{/if}}	
+	
 	{{#if player}}
 		{{> Leaderboard }}
+	{{/if}}
+	
+	{{#if canowner}}
+		{{> CanViewer }}
 	{{/if}}
   </main>
 </template>

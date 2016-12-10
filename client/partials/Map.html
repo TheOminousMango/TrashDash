@@ -7,7 +7,19 @@
   </style>
     <div id="map"></div>
     <script>
-	  function plot(x,y,icon,map) {
+	  function plot(can,map) {
+	  
+		var x = parseFloat(can.latitude);
+		var y = parseFloat(can.longitude);
+		var empty = can.empty;
+	  
+		var icon = "";
+		if(empty) {
+			icon = "normal.png";
+		} else {
+			icon = "full.png";
+		}
+		
 		var point = {lat: x, lng: y};
 		var marker = new google.maps.Marker({
           position: point,
@@ -21,8 +33,8 @@
 		var infowindow = new google.maps.InfoWindow;
 		marker.addListener('mouseover', function() {
 		  var geocoder = new google.maps.Geocoder;
-		  geocoder.geocode({'location': point}, function(results, status) {
-			  infowindow.setContent(results[1].formatted_address);
+		  geocoder.geocode({'location': marker.getPosition()}, function(results, status) {
+			  infowindow.setContent("<b> <u>" + can.can_name + "</b></u><br> Owner: " + can.owner + "<br> Address: " + results[1].formatted_address);
 			  infowindow.open(map, marker);
 		  });
         });
@@ -30,17 +42,56 @@
 		marker.addListener('mouseout', function() {
 			infowindow.close();
 		});
+		return marker;
 	  }
-	
-	
+	  
+	  var cans = Can.find().fetch();
+	  var markers = [];
+	  var map;
+	  
       function initMap() {
-		var map = new google.maps.Map(document.getElementById('map'), {
+		map = new google.maps.Map(document.getElementById('map'), {
 			zoom: 10,
 			center: {lat: 43, lng: -76}
 		  });
-        plot(43.042347, -76.1482379, "normal.png", map);
-		plot(43.0500059, -76.1490658, "full.png", map);
+		plotAll();
       }
+	  
+	  function plotAll() {		
+		for(var i = 0; i < markers.length; i++) {
+			markers[i].setMap(null);
+		}
+		
+		markers = [];
+		
+	  	for(var i = 0; i < cans.length; i++) {
+			//markers.push(plot(parseFloat(cans[i].latitude), parseFloat(cans[i].longitude), cans[i].empty, map));
+			markers.push(plot(cans[i], map));
+		}
+	  }
+	  
+	  function updatePos() {
+		for(var i = 0; i < markers.length; i++) {
+			var loc = new google.maps.LatLng(cans[i].latitude,cans[i].longitude);
+			markers[i].setPosition(loc);
+			var icon = "";
+			if(cans[i].empty) {
+				icon = "normal.png";
+			} else {
+				icon = "full.png";
+			}
+			markers[i].setIcon(icon);
+		}
+	  }
+	  
+	  setInterval(function(){ 
+	  	cans = Can.find().fetch();
+		if(markers.length != cans.length) { 
+			plotAll();
+		}
+		updatePos();
+	  }, 3000);
+	
     </script>
     <script async defer
     src="https://maps.googleapis.com/maps/api/js?AIzaSyDJxrfBFjAf2JHJ3VHFaEw-4dDe8xf0StA&callback=initMap">

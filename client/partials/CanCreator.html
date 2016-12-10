@@ -1,0 +1,29 @@
+<template name="CanCreator">
+	<!--Can.insert({ latitude: params.x, longitude: params.y, owner: params.owner, can_name: params.can_name }); -->
+	<div id="can">
+		 <u>Add Can</u><br>
+		 <textarea rows="1" placeholder="latitude" style="width: 80px; resize: none" id="latitude"></textarea>
+		 <textarea rows="1" placeholder="longitude" style="width: 80px; resize: none" id="longitude"></textarea>
+		 <br>
+		 <textarea rows="1" placeholder="owner" style="width: 164px; resize: none" id="owner"></textarea>
+		 <br>
+		 <textarea rows="1" placeholder="can name" style="width: 164px; resize: none;" id="can_name"></textarea>
+		 <br>
+		 <button onclick="onAdd()"> Add Can </button>
+	 </div>
+	 
+	 <script>
+	 function onAdd() {
+		params = {
+			x: $('#latitude').val(), 
+			y: $('#longitude').val(),
+			owner: $('#owner').val(),
+			can_name: $('#can_name').val()
+		}
+		
+	  Meteor.call('AddCan', params, function(err,response) {
+        alert(response);
+      });
+	 }
+	 </script>
+</template>

@@ -16,6 +16,15 @@ if(Meteor.isServer) {
   Meteor.publish('leaderboard', function() {
 	return Meteor.users.find({role:"player"}, { sort: { score: -1 }, fields: {'points': 1, 'emails.address': 1}});
   });
+  
+  Meteor.publish('mycans', function() {
+	var email = Meteor.users.find({_id:this.userId}).fetch()[0].emails[0].address;
+	return Can.find({owner:email});
+  });
+  
+  Meteor.publish('allcans', function() {
+	return Can.find();
+  });
 
   Meteor.methods({
 		Redeem: function (id) {
@@ -47,6 +56,29 @@ if(Meteor.isServer) {
 				}
 			} 
 			return "Access Denied";
+		},
+		
+		AddCan: function(params) {
+			if(Meteor.user().role == "superuser") {
+				var user = Meteor.users.find({ "emails.address" : params.owner }).fetch()[0];
+				if(!!user)  {
+					if(user.role == "canowner") {
+						var sameusers = Can.find({ can_name : params.can_name }).fetch().length;
+						if(sameusers == 0) { 
+							Can.insert({ latitude: params.x, longitude: params.y, empty: true, owner: params.owner, can_name: params.can_name });
+							return params.owner + " now owns can: " + params.can_name;
+						} else {
+							return "Please select a different can name.";
+						}
+					} else {
+						return "Cannot give can to a non-can owner, set " + params.owner + " to can owner first.";
+					}
+				} else {
+					return "User not found!";
+				}
+			} else {
+				return "Access Denied";
+			}
 		}
 	});
 
