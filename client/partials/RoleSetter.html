@@ -10,7 +10,7 @@
       <option value="superuser"> Superuser </option>
     </select>
     <button onclick="updateUser()"> Submit </button>
-	
+
 	<script>
 		function updateUser() {
 			var user = $( "#username" ).val();
@@ -18,10 +18,10 @@
 			var params = {
 				user: user, role: role
 			}
-			
+
 			Meteor.call('SetRole', params, function(err,response) {
 				alert(response);
 			});
-		}		
+		}
 	</script>
 </template>

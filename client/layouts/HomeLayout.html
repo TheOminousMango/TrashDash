@@ -1,42 +1,43 @@
 <template name="HomeLayout">
   <header>
     {{> loginButtons}} {{firstName}}
-    <h1 class="center-text white-text press-to-start"> Home Page </h1>
+    <h1 class="center-text press-to-start"> Home Page </h1>
+    <link href="https://fonts.googleapis.com/css?family=Press+Start+2P" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Bungee" rel="stylesheet">
 	<style>
 		.center-text {
 			text-align: center;
 		}
-		
-		body { 
-			background-color: rgb(44, 44, 44);
+
+		body {
+			background-color: black;
+            color: rgb(0, 200, 0);
+            font-family: 'Bungee', cursive;
 		}
-		
-		.white-text {
-			color: rgb(200, 200, 200);
-		}
-		
+
 		.press-to-start {
 			font-family: 'Press Start 2P', cursive;
 		}
-		
-		
+
+
+
 	</style>
   </header>
   <main>
     {{> Redeem }}
-	
+
     {{#if superuser}}
 		{{> RoleSetter }}
 		<br><br>
 		{{> CanCreator }}
 		<br><br>
 		{{> Map }}
-	{{/if}}	
-	
+	{{/if}}
+
 	{{#if player}}
 		{{> Leaderboard }}
 	{{/if}}
-	
+
 	{{#if canowner}}
 		{{> CanViewer }}
 	{{/if}}
