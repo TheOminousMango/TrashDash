@@ -6,8 +6,8 @@ BrowserPolicy.content.allowFontDataUrl( '*.com' );
 BrowserPolicy.content.allowInlineScripts();
 BrowserPolicy.content.allowEval();
 BrowserPolicy.content.allowInlineStyles();
-BrowserPolicy.content.allowFrameOrigin( '*' );
-BrowserPolicy.framing.restrictToOrigin( '*' );
+//BrowserPolicy.content.allowFrameOrigin( '*' );
+BrowserPolicy.framing.allowAll();
 
 Accounts.onCreateUser(function(options, user) {
 	user.role = "player";
