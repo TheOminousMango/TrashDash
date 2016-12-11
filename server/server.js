@@ -1,11 +1,5 @@
 import { Meteor } from 'meteor/meteor'
 
-Meteor.startup( () => {
-	Modules.server.startup();
-	BrowserPolicy.content.allowFrameOrigin( '*' );
-	BrowserPolicy.framing.restrictToOrigin( '*' );
-});
-
 Accounts.onCreateUser(function(options, user) {
 	user.role = "player";
 	user.points = 0;
