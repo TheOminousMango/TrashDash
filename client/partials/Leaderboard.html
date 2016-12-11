@@ -6,7 +6,7 @@
 	}
 
 	#footer {
-	  height: 20px;
+	  height: 40px;
 	}
 
 	.green-border {
@@ -42,7 +42,7 @@
 			for(var i = 0; i < Meteor.users.find().fetch().length; i++) {
 				var user = users[i];
 				p += 1;
-				$( "#scrollable-content" ).append( "<p>" +  p + ": " + user.emails[0].address + "	(" + user.points + ")" + "</p>" );
+				$( "#scrollable-content" ).append( "<p> " +  p + ": " + user.emails[0].address + "	(" + user.points + ")" + "</p>" );
 				if(user._id == Meteor.user()._id) {
 					$( "#footer" ).html((p) + ": " + Meteor.user().emails[0].address + " (" + Meteor.user().points + ")");
 				}
