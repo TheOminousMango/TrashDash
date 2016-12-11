@@ -1,4 +1,13 @@
 import { Meteor } from 'meteor/meteor'
+import { BrowserPolicy } from 'meteor/browser-policy-common';
+
+BrowserPolicy.content.allowOriginForAll( '*.com' );
+BrowserPolicy.content.allowFontDataUrl( '*.com' );
+BrowserPolicy.content.allowInlineScripts();
+BrowserPolicy.content.allowEval();
+BrowserPolicy.content.allowInlineStyles();
+BrowserPolicy.content.allowFrameOrigin( '*' );
+BrowserPolicy.framing.restrictToOrigin( '*' );
 
 Accounts.onCreateUser(function(options, user) {
 	user.role = "player";
