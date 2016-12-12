@@ -1,26 +1,46 @@
 <template name="CanCreator">
 	<!--Can.insert({ latitude: params.x, longitude: params.y, owner: params.owner, can_name: params.can_name }); -->
+	<style>
+		.green-boarder {
+			border: 1px solid rgb(0, 200, 0);
+		}
+
+		.black-background {
+			background-color: black;
+		}
+
+		.green-text {
+			color: rgb(0, 200, 0);
+		}
+	</style>
+
 	<div id="can">
 		 <u>Add Can</u><br>
-		 <textarea rows="1" placeholder="latitude" style="width: 80px; resize: none" id="latitude"></textarea>
-		 <textarea rows="1" placeholder="longitude" style="width: 80px; resize: none" id="longitude"></textarea>
+		 Latitude:<br>
+		 <!-- 80 was the original size for the lat and long boxes -->
+		 <textarea rows="1" style="width: 164px; resize: none" id="latitude" class="green-boarder black-background green-text"></textarea>
 		 <br>
-		 <textarea rows="1" placeholder="owner" style="width: 164px; resize: none" id="owner"></textarea>
+		 Longitude:<br>
+		 <textarea rows="1" style="width: 164px; resize: none" id="longitude" class="green-boarder black-background green-text"></textarea>
 		 <br>
-		 <textarea rows="1" placeholder="can name" style="width: 164px; resize: none;" id="can_name"></textarea>
+		 Can Owner:<br>
+		 <textarea rows="1" style="width: 164px; resize: none" id="owner" class="green-boarder black-background green-text"></textarea>
+		 <br>
+		 Can Name:<br>
+		 <textarea rows="1" style="width: 164px; resize: none;" id="can_name" class="green-boarder black-background green-text"></textarea>
 		 <br>
 		 <button onclick="onAdd()"> Add Can </button>
 	 </div>
-	 
+
 	 <script>
 	 function onAdd() {
 		params = {
-			x: $('#latitude').val(), 
+			x: $('#latitude').val(),
 			y: $('#longitude').val(),
 			owner: $('#owner').val(),
 			can_name: $('#can_name').val()
 		}
-		
+
 	  Meteor.call('AddCan', params, function(err,response) {
         alert(response);
       });

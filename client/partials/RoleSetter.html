@@ -1,14 +1,104 @@
 <template name="RoleSetter">
+	<style>
+		.green-border {
+			border: 1px solid rgb(0, 200, 0);
+		}
+
+		.green-background {
+			background-color: rgb(0, 200, 0);
+		}
+
+		.black-background {
+			background-color: black;
+		}
+
+		.green-text {
+			color: rgb(0, 200, 0);
+		}
+
+		/*.styled-select {
+		   background: url(http://i62.tinypic.com/15xvbd5.png) no-repeat 96% 0;
+		   height: 29px;
+		   overflow: hidden;
+		   width: 240px;
+		}
+
+		.styled-select select {
+		   background: transparent;
+		   border: green;
+		   font-size: 14px;
+		   height: 29px;
+		   padding: 5px;
+		   width: 268px;
+		   color: rgb(0, 200, 0);
+		}*/
+
+		.select-style {
+		    border: 1px solid rgb(0, 200, 0);
+		    width: 120px;
+		    border-radius: 1px;
+		    overflow: hidden;
+		    background-image: black 90% 50%;
+			color: rgb(0, 200, 0);
+		}
+
+		.select-style select {
+		    padding: 5px 8px;
+		    width: 101%;
+		    border: none;
+		    box-shadow: none;
+		    background: black;
+		    background-image: none;
+		    -webkit-appearance: none;
+			color: rgb(0, 200, 0);
+		}
+
+		.select-style select:focus {
+		    outline: none;
+		}
+
+		button {
+		  -webkit-border-radius: 0;
+		  -moz-border-radius: 0;
+		  border-radius: 0px;
+		  border: rgb(0, 200, 0);
+		  -webkit-box-shadow: 0px 1px 15px #00c800;
+		  -moz-box-shadow: 0px 1px 15px #00c800;
+		  box-shadow: 0px 1px 15px #00c800;
+		  color: #00c800;
+		  font-size: 16px;
+		  background: #000000;
+		  padding: 1px 20px 1px 20px;
+		  text-decoration: none;
+		}
+
+		button:hover {
+		  background: #00c800;
+		  text-decoration: none;
+		  color: black;
+		}
+
+		textarea:focus {
+			background-color: #00c800;
+			border: 1px solid black;
+			color: black;
+		}
+
+	</style>
+
 	<u>Set Role</u><br>
-    User:
-    <textarea rows="1" placeholder="username" style="resize: none" id="username"></textarea>
+    Username: <br>
+    <textarea rows="1" style="resize: none" id="username" class="green-boarder black-background green-text"></textarea>
     <br>
-    Set Role:
-    <select id="role">
-      <option value="player"> Player </option>
-      <option value="canowner"> Can Owner </option>
-      <option value="superuser"> Superuser </option>
-    </select>
+    Role: <br>
+	<div class="select-style green-border">
+		<select id="role">
+	      <option value="player"> Player </option>
+	      <option value="canowner"> Can Owner </option>
+	      <option value="superuser"> Superuser </option>
+	    </select>
+	</div>
+
     <button onclick="updateUser()"> Submit </button>
 
 	<script>
