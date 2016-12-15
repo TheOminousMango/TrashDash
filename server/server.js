@@ -32,6 +32,7 @@ if(Meteor.isServer) {
   });
 
   Meteor.publish('allcans', function() {
+	//only if super user
 	return Can.find();
   });
 
