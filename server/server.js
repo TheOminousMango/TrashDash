@@ -27,13 +27,24 @@ if(Meteor.isServer) {
   });
 
   Meteor.publish('mycans', function() {
-	var email = Meteor.users.find({_id:this.userId}).fetch()[0].emails[0].address;
-	return Can.find({owner:email});
+	try {
+		var email = Meteor.users.find({_id:this.userId}).fetch()[0].emails[0].address;
+		return Can.find({owner:email});
+	} catch(e) {
+		return;
+	}
   });
 
   Meteor.publish('allcans', function() {
-	//only if super user
-	return Can.find();
+	try {
+		if(Meteor.users.find({_id:this.userId}).fetch()[0].role == "superuser") {
+			return Can.find();
+		} else {
+			return;
+		}
+	} catch(e) {
+		return;
+	}
   });
 
   Meteor.methods({
