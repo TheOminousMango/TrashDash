@@ -3,7 +3,11 @@ Deps.autorun(function(){
 });
 
 Template.HomeLayout.helpers({
-  firstName: function() {
+  username: function() {
+    return Meteor.user().username;
+  },
+
+  points: function() {
     return Meteor.user().points;
   },
   

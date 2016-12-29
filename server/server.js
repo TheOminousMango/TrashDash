@@ -23,7 +23,7 @@ if(Meteor.isServer) {
   });
 
   Meteor.publish('leaderboard', function() {
-	return Meteor.users.find({role:"player"}, { sort: { score: -1 }, fields: {'points': 1, 'emails.address': 1}});
+	return Meteor.users.find({role:"player"}, { sort: { score: -1 }, fields: {'points': 1, 'username': 1}});
   });
 
   Meteor.publish('mycans', function() {
@@ -48,6 +48,12 @@ if(Meteor.isServer) {
   });
 
   Meteor.methods({
+		sendVerificationLink: function() {
+			let userId = Meteor.userId();
+			if ( userId ) {
+				return Accounts.sendVerificationEmail( userId );
+			}
+	    },
 		Redeem: function (id) {
 		  if(!Meteor.user()) {
 			return "Please Login"
@@ -67,7 +73,7 @@ if(Meteor.isServer) {
 		SetRole: function(params) {
 			if(!!Meteor.user()) {
 				if(Meteor.user().role == "superuser") {
-					var user = Meteor.users.find({ "emails.address" : params.user }).fetch()[0];
+					var user = Meteor.users.find({ "username" : params.user }).fetch()[0];
 					if(!!user)  {
 						Meteor.users.update(user, { $set: { role:params.role } });
 						return params.user + " is now a " + params.role;
@@ -81,7 +87,7 @@ if(Meteor.isServer) {
 
 		AddCan: function(params) {
 			if(Meteor.user().role == "superuser") {
-				var user = Meteor.users.find({ "emails.address" : params.owner }).fetch()[0];
+				var user = Meteor.users.find({ "username" : params.owner }).fetch()[0];
 				if(!!user)  {
 					if(user.role == "canowner") {
 						var sameusers = Can.find({ can_name : params.can_name }).fetch().length;
@@ -104,6 +110,9 @@ if(Meteor.isServer) {
 	});
 
   Meteor.startup(function() {
+	  
+	  process.env.MAIL_URL="smtp://trashdash.project@gmail.com:Msj4LoG5TH@smtp.gmail.com:587";
+
       Meteor.setInterval(function() {
         var time = Math.round(new Date().getTime() / 1000);
         var qr = QrCode.remove({Expiration:{$lte:time}});

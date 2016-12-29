@@ -1,0 +1,105 @@
+<template name="Signup">
+
+  <head>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+  </head>
+
+  <style>
+	.main {
+		text-align:center;
+		width: 350px;
+		border-style: solid;
+		border-width: 5px;
+	}
+  </style>
+  
+  <script>
+  
+	  var divs = [ ".loginmain", ".signupmain", ".logout" ]; 
+	  
+	  var pressedLast = -1;
+	  var pressedSame = 0;
+  
+  
+	  $(function() {
+		hideAll();
+	  });
+	  
+	  function hideAll() {
+		for(var i = 0; i < divs.length; i++)
+			$(divs[i]).hide();
+	  }
+	  
+	  function show(div) {
+		hideAll();
+		
+		if(pressedLast == div) 
+			pressedSame++;
+		else
+			pressedSame = 0;
+		
+		if(pressedSame >= 1) { hideAll(); pressedSame = -1; }
+		else $(divs[div]).show();
+		
+		pressedLast = div;
+	  }
+  </script>
+  
+  <div class="row">
+	
+	{{#if username}}
+	<div id="username">
+		<button onclick='show(2)'> {{username}} </button> {{points}}
+	</div>
+	{{else}}
+	<div id="login-signup">
+  
+		<button onclick='show(0)'>Log In</button>
+		or
+		<button onclick='show(1)'>Sign Up</button>
+		
+	</div>
+	{{/if}}
+	
+	<div class="logout">
+		<button onclick="Meteor.logout(); hideAll()"> logout </button>
+	</div>
+  
+    <div class="loginmain">
+      <form id="login" class="login">
+	  	<div class="form-group">
+		  <label for="username">Username</label>
+          <input type="username" name="loginusername" class="form-control" placeholder="Username">
+		</div>
+        <div class="form-group">
+          <label for="password">Password</label>
+          <input type="password" name="loginpassword" class="form-control" placeholder="Password">
+        </div>
+        <div class="form-group">
+          <input type="submit" class="lgbtn" value="Submit">
+        </div>
+      </form>
+    </div>
+	
+	<div class="signupmain">
+      <form id="signup" class="signup">
+	  	<div class="form-group">
+		  <label for="username">Username</label>
+          <input type="username" name="username" class="form-control" placeholder="Username">
+		</div>
+        <div class="form-group">
+          <label for="emailAddress">Email Address</label>
+          <input type="email" name="emailAddress" class="form-control" placeholder="Email Address">
+        </div>
+        <div class="form-group">
+          <label for="password">Password</label>
+          <input type="password" name="password" class="form-control" placeholder="Password">
+        </div>
+        <div class="form-group">
+          <input type="submit" class="subtn" value="Submit">
+        </div>
+      </form>
+    </div>
+	
+  </div>
+</template>
