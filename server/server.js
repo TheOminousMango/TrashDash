@@ -73,12 +73,12 @@ if(Meteor.isServer) {
 		SetRole: function(params) {
 			if(!!Meteor.user()) {
 				if(Meteor.user().role == "superuser") {
-					var user = Meteor.users.find({ "username" : params.user }).fetch()[0];
+					var user = Meteor.users.find({ username: params.user }).fetch()[0];
 					if(!!user)  {
 						Meteor.users.update(user, { $set: { role:params.role } });
 						return params.user + " is now a " + params.role;
 					} else {
-						return "User not found!";
+						return "User not found: " + params.user;
 					}
 				}
 			}
@@ -87,7 +87,7 @@ if(Meteor.isServer) {
 
 		AddCan: function(params) {
 			if(Meteor.user().role == "superuser") {
-				var user = Meteor.users.find({ "username" : params.owner }).fetch()[0];
+				var user = Meteor.users.find({username: params.owner }).fetch()[0];
 				if(!!user)  {
 					if(user.role == "canowner") {
 						var sameusers = Can.find({ can_name : params.can_name }).fetch().length;
@@ -101,7 +101,7 @@ if(Meteor.isServer) {
 						return "Cannot give can to a non-can owner, set " + params.owner + " to can owner first.";
 					}
 				} else {
-					return "User not found!";
+					return "User not found: " + params.owner;
 				}
 			} else {
 				return "Access Denied";

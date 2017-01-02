@@ -88,11 +88,11 @@
 
 	<u>Set Role</u><br>
     Username: <br>
-    <textarea rows="1" style="resize: none" id="username" class="green-boarder black-background green-text"></textarea>
+    <textarea rows="1" style="resize: none" id="RoleSetterUsername" class="green-boarder black-background green-text"></textarea>
     <br>
     Role: <br>
 	<div class="select-style green-border">
-		<select id="role">
+		<select id="RoleSetterRole">
 	      <option value="player"> Player </option>
 	      <option value="canowner"> Can Owner </option>
 	      <option value="superuser"> Superuser </option>
@@ -103,8 +103,8 @@
 
 	<script>
 		function updateUser() {
-			var user = $( "#username" ).val();
-			var role = $( "#role" ).val();
+			var user = $( "#RoleSetterUsername" ).val();
+			var role = $( "#RoleSetterRole" ).val();
 			var params = {
 				user: user, role: role
 			}
