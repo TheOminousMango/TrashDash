@@ -15,7 +15,7 @@
   
   <script>
   
-	  var divs = [ ".loginmain", ".signupmain", ".logout" ]; 
+	  var divs = [ ".loginmain", ".signupmain", ".profile" ]; 
 	  
 	  var pressedLast = -1;
 	  var pressedSame = 0;
@@ -61,8 +61,8 @@
 	</div>
 	{{/if}}
 	
-	<div class="logout">
-		<button onclick="Meteor.logout(); hideAll()"> logout </button>
+	<div class="profile">
+		<button onclick="Router.go('profile'); hideAll();"> view profile </button>
 	</div>
   
     <div class="loginmain">
@@ -79,6 +79,9 @@
           <input type="submit" class="lgbtn" value="Submit">
         </div>
       </form>
+	  
+	  <button onclick="Router.go('reset');"> Need Help Signing In? </button>
+	  
     </div>
 	
 	<div class="signupmain">
