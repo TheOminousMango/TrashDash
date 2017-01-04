@@ -1,0 +1,17 @@
+<template name="ProfileLayout">
+  <header>
+  </header>
+  <main>
+    <u> {{username}} </u>
+	<br>
+	<button onclick="Meteor.logout(); Router.go('home');"> logout </button>
+	<button onclick="Router.go('home');"> back </button>
+	<br>
+	<hr>
+	<form id="changePassword">
+		Old Password: <input type="password" name="oldpassword"><br>
+		New Password: <input type="password" name="newpassword"><br>
+		<input type="submit" value="Submit">
+	</form>
+  </main>
+</template>

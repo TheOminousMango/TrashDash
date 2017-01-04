@@ -2,8 +2,6 @@ Template.Signup.events({
   'submit form' ( event, template ) {
     event.preventDefault();
 	
-	console.log($(event.target).prop("id"));
-	
 	if ($(event.target).prop("id") == "login") {
 		
         var usernameVar = template.find( '[name="loginusername"]' ).value;
