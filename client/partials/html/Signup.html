@@ -11,6 +11,69 @@
 		border-style: solid;
 		border-width: 5px;
 	}
+	
+	.bungee {
+        font-family: 'Bungee', cursive;
+    }
+
+    .button {
+      border: none;
+      color: black;
+      font-size: 14px;
+      background: #00c800;
+      padding: 0px 5px 0px 5px;
+      text-decoration: none;
+    }
+
+    .button:hover {
+      background: #00fa00;
+      text-decoration: none;
+    }
+
+    .align-right {
+        float: right;
+    }
+
+    .green-border {
+        border: 1px solid rgb(0, 200, 0);
+    }
+
+    .green-background {
+        background-color: rgb(0, 200, 0);
+    }
+
+    .black-background {
+        background-color: black;
+    }
+
+    .black-border {
+        border: 2px solid rgb(0, 0, 0);
+    }
+
+    .green-text {
+        color: rgb(0, 200, 0);
+    }
+
+    .glowing-button {
+      -webkit-border-radius: 0;
+      -moz-border-radius: 0;
+      border-radius: 0px;
+      border: rgb(0, 200, 0);
+      -webkit-box-shadow: 0px 1px 15px #00c800;
+      -moz-box-shadow: 0px 1px 15px #00c800;
+      box-shadow: 0px 1px 15px #00c800;
+      color: #00c800;
+      font-size: 16px;
+      background: #000000;
+      padding: 1px 20px 1px 20px;
+      text-decoration: none;
+    }
+
+    .glowing-button:hover {
+      background: #00c800;
+      text-decoration: none;
+      color: black;
+    }
   </style>
   
   <script>
@@ -49,49 +112,46 @@
 	
 	{{#unless username}}
 		<div id="login-signup">
-	  
-			<button onclick='show(0)'>Log In</button>
-			or
-			<button onclick='show(1)'>Sign Up</button>
-			
+			<button class="button bungee align-right black-border" onclick='show(1)'>Sign Up</button>
+			<button class="button bungee align-right black-border" onclick='show(0)'>Log In</button>
 		</div>
 	{{/unless}} 
   
     <div class="loginmain">
       <form id="login" class="login">
 	  	<div class="form-group">
-		  <label for="username">Username</label>
-          <input type="username" name="loginusername" class="form-control" placeholder="Username">
+		  <label for="username">Username</label><br>
+          <input type="username" name="loginusername" class="form-control green-border black-background green-text">
 		</div>
         <div class="form-group">
-          <label for="password">Password</label>
-          <input type="password" name="loginpassword" class="form-control" placeholder="Password">
+          <label for="password">Password</label><br>
+          <input type="password" name="loginpassword" class="form-control green-border black-background green-text">
         </div>
         <div class="form-group">
-          <input type="submit" class="lgbtn" value="Submit">
+          <input type="submit" class="lgbtn glowing-button" value="Submit">
         </div>
       </form>
 	  
-	  <button onclick="Router.go('reset');"> Need Help Signing In? </button>
+	  <button class="glowing-button" onclick="Router.go('reset');"> Need Help Signing In? </button>
 	  
     </div>
 	
 	<div class="signupmain">
       <form id="signup" class="signup">
 	  	<div class="form-group">
-		  <label for="username">Username</label>
-          <input type="username" name="username" class="form-control" placeholder="Username">
+		  <label for="username">Username</label><br>
+          <input type="username" name="username" class="form-control green-border black-background green-text">
 		</div>
         <div class="form-group">
-          <label for="emailAddress">Email Address</label>
-          <input type="email" name="emailAddress" class="form-control" placeholder="Email Address">
+          <label for="emailAddress">Email Address</label><br>
+          <input type="email" name="emailAddress" class="form-control green-border black-background green-text">
         </div>
         <div class="form-group">
-          <label for="password">Password</label>
-          <input type="password" name="password" class="form-control" placeholder="Password">
+          <label for="password">Password</label><br>
+          <input type="password" name="password" class="form-control green-border black-background green-text">
         </div>
         <div class="form-group">
-          <input type="submit" class="subtn" value="Submit">
+          <input type="submit" class="subtn glowing-button" value="Submit">
         </div>
       </form>
     </div>
