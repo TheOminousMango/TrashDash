@@ -1,7 +1,5 @@
 <template name="HomeLayout">
   <header>
-	{{> Signup}}
-    <h1 class="center-text press-to-start"> Home Page </h1>
     <link href="https://fonts.googleapis.com/css?family=Press+Start+2P" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Bungee" rel="stylesheet">
 	<style>
@@ -18,28 +16,14 @@
 		.press-to-start {
 			font-family: 'Press Start 2P', cursive;
 		}
-
-
-
 	</style>
   </header>
   <main>
-    {{> Redeem }}
+  
+	{{> TopBar}}
+  
+	{{> Signup}}
+    <h1 class="center-text press-to-start"> Home Page </h1>
 
-    {{#if superuser}}
-		{{> RoleSetter }}
-		<br><br>
-		{{> CanCreator }}
-		<br><br>
-		{{> Map }}
-	{{/if}}
-
-	{{#if player}}
-		{{> Leaderboard }}
-	{{/if}}
-
-	{{#if canowner}}
-		{{> CanViewer }}
-	{{/if}}
   </main>
 </template>

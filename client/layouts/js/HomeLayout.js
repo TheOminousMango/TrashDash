@@ -1,5 +1,6 @@
 Deps.autorun(function(){
-  Meteor.subscribe('userData');
+	Meteor.subscribe('userData');
+	document.title = "Welcome to TrashDash";
 });
 
 Template.HomeLayout.helpers({

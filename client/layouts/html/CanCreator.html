@@ -1,5 +1,6 @@
 <template name="CanCreator">
 	<!--Can.insert({ latitude: params.x, longitude: params.y, owner: params.owner, can_name: params.can_name }); -->
+  <header>
 	<style>
 		.green-boarder {
 			border: 1px solid rgb(0, 200, 0);
@@ -13,7 +14,10 @@
 			color: rgb(0, 200, 0);
 		}
 	</style>
-
+  </header>
+  <main>
+	{{> TopBar }}
+  
 	<div id="can">
 		 <u>Add Can</u><br>
 		 Latitude:<br>
@@ -46,4 +50,5 @@
       });
 	 }
 	 </script>
+  </main>
 </template>

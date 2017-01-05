@@ -2,10 +2,10 @@
   <header>
   </header>
   <main>
+	{{> TopBar }}
     <u> {{username}} </u>
 	<br>
 	<button onclick="Meteor.logout(); Router.go('home');"> logout </button>
-	<button onclick="Router.go('home');"> back </button>
 	<br>
 	<hr>
 	<form id="changePassword">

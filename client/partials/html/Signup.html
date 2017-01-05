@@ -15,7 +15,7 @@
   
   <script>
   
-	  var divs = [ ".loginmain", ".signupmain", ".profile" ]; 
+	  var divs = [ ".loginmain", ".signupmain" ]; 
 	  
 	  var pressedLast = -1;
 	  var pressedSame = 0;
@@ -47,23 +47,15 @@
   
   <div class="row">
 	
-	{{#if username}}
-	<div id="username">
-		<button onclick='show(2)'> {{username}} </button> {{points}}
-	</div>
-	{{else}}
-	<div id="login-signup">
-  
-		<button onclick='show(0)'>Log In</button>
-		or
-		<button onclick='show(1)'>Sign Up</button>
-		
-	</div>
-	{{/if}}
-	
-	<div class="profile">
-		<button onclick="Router.go('profile'); hideAll();"> view profile </button>
-	</div>
+	{{#unless username}}
+		<div id="login-signup">
+	  
+			<button onclick='show(0)'>Log In</button>
+			or
+			<button onclick='show(1)'>Sign Up</button>
+			
+		</div>
+	{{/unless}} 
   
     <div class="loginmain">
       <form id="login" class="login">
