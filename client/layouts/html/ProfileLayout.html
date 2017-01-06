@@ -1,13 +1,14 @@
 <template name="ProfileLayout">
   <header>
       <link href="https://fonts.googleapis.com/css?family=Bungee" rel="stylesheet">
+      <link href="https://fonts.googleapis.com/css?family=Press+Start+2P" rel="stylesheet">
   </header>
   <main>
 	{{> TopBar }}
 
     <h1 class="press-to-start green-text center-text">Profile</h1>
     <div class="green-text bungee">{{username}}</div>
-	<button onclick="Meteor.logout(); Router.go('home');" class="align-right"> logout </button>
+	<button onclick="Meteor.logout(); Router.go('home');" class="align-right glowing-button"> logout </button>
 	<br>
 	<hr class="green-border">
 	<form id="changePassword">

@@ -122,6 +122,15 @@ li a:hover {
     color: black;
 }
 /*------------------------------------------------------------*/
-
-
 /*/Classes*/
+
+/*Ids*/
+#scrollable-content {
+  height: 180px;
+  overflow: auto;
+}
+
+#footer {
+  height: 40px;
+}
+/*/Ids*/
