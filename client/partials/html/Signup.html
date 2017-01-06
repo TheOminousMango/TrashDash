@@ -2,6 +2,11 @@
 
   <head>
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+	<style>
+		#loginError {
+			color: red;
+		}
+	</style>
   </head>
 
   <script>
@@ -62,6 +67,8 @@
 
 	  <button class="glowing-button" onclick="Router.go('reset');"> Need Help Signing In? </button>
 
+	  <div id="loginError"></div>
+	  
     </div>
 
 	<div class="signupmain">

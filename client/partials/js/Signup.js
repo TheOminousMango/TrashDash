@@ -6,12 +6,14 @@ Template.Signup.events({
 		
         var usernameVar = template.find( '[name="loginusername"]' ).value;
         var passwordVar = template.find( '[name="loginpassword"]' ).value;
+		
         Meteor.loginWithPassword(usernameVar, passwordVar, function (err) {
 			if (err) {
-				alert(err);
+				$( "#loginError" ).append( "<p>" + err + "</p>" );
+			} else {
+				hideAll();
 			}
 		});
-		hideAll();
 		
     } else if ($(event.target).prop("id") == "signup") {
 		let user = {
@@ -23,12 +25,15 @@ Template.Signup.events({
 		
 		Accounts.createUser( user, ( error ) => {
 		  if ( error ) {
+			 //replace with absolute div
 			 alert(error, 'danger' );
 		  } else {
 			Meteor.call( 'sendVerificationLink', ( error, response ) => {
 			  if ( error ) {
+				//replace with absolute div
 				alert( error.reason, 'danger' );
 			  } else {
+				//replace with absolute div
 				alert( 'Welcome!', 'success' );
 			  }
 			});
