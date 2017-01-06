@@ -1,16 +1,18 @@
 <template name="ProfileLayout">
   <header>
+      <link href="https://fonts.googleapis.com/css?family=Bungee" rel="stylesheet">
   </header>
   <main>
 	{{> TopBar }}
-    <u> {{username}} </u>
+
+    <h1 class="press-to-start green-text center-text">Profile</h1>
+    <div class="green-text bungee">{{username}}</div>
+	<button onclick="Meteor.logout(); Router.go('home');" class="align-right"> logout </button>
 	<br>
-	<button onclick="Meteor.logout(); Router.go('home');"> logout </button>
-	<br>
-	<hr>
+	<hr class="green-border">
 	<form id="changePassword">
-		Old Password: <input type="password" name="oldpassword"><br>
-		New Password: <input type="password" name="newpassword"><br>
+		<div class="green-text">Old Password: </div><input type="password" name="oldpassword" class="green-border black-background green-text"><br>
+		<div class="green-text">New Password: </div><input type="password" name="newpassword" class="green-border black-background green-text"><br>
 		<input type="submit" value="Submit">
 	</form>
   </main>

@@ -1,29 +1,12 @@
 <template name="HomeLayout">
-  <header>
-    <link href="https://fonts.googleapis.com/css?family=Press+Start+2P" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css?family=Bungee" rel="stylesheet">
-	<style>
-		.center-text {
-			text-align: center;
-		}
+    <header>
+        <link href="https://fonts.googleapis.com/css?family=Press+Start+2P" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css?family=Bungee" rel="stylesheet">
+    </header>
+    <main>
+	    {{> TopBar}}
 
-		body {
-			background-color: black;
-            color: rgb(0, 200, 0);
-            font-family: 'Bungee', cursive;
-		}
-
-		.press-to-start {
-			font-family: 'Press Start 2P', cursive;
-		}
-	</style>
-  </header>
-  <main>
-  
-	{{> TopBar}}
-  
-	{{> Signup}}
-    <h1 class="center-text press-to-start"> Home Page </h1>
-
-  </main>
+	    {{> Signup}}
+        <h1 class="center-text press-to-start green-text"> Home Page </h1>
+    </main>
 </template>

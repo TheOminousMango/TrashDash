@@ -1,0 +1,127 @@
+/*General*/
+body {
+    background: black;
+    font-family: 'Bungee', cursive;
+}
+
+ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    background-color: black;
+}
+
+li {
+    text-align: center;
+    border-bottom: 1px solid rgb(0, 200, 0);
+}
+
+li a {
+    display: block;
+    color: rgb(0, 200, 0);
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+}
+
+li a:hover {
+    background-color: #111;
+}
+/*/General*/
+
+/*Classes*/
+.active {
+    background-color: rgb(0, 200, 0);
+    color: black;
+}
+
+.active:hover {
+    color: rgb(0, 200, 0);
+}
+/*------------------------------------------------------------*/
+.green-border {
+    border: 1px solid rgb(0, 200, 0);
+}
+
+.black-border {
+    border: 2px solid black;
+}
+
+.green-background {
+    background-color: rgb(0, 200, 0);
+}
+
+.black-background {
+    background-color: black;
+}
+
+.green-text {
+    color: rgb(0, 200, 0);
+}
+
+.center-text {
+    text-align: center;
+}
+
+.text-right {
+    text-align: right;
+}
+
+.align-right {
+    float: right;
+}
+
+.main {
+    text-align:center;
+    width: 350px;
+    border-style: solid;
+    border-width: 5px;
+}
+/*------------------------------------------------------------*/
+.press-to-start {
+    font-family: 'Press Start 2P', cursive;
+}
+
+.bungee {
+    font-family: 'Bungee', cursive;
+}
+/*------------------------------------------------------------*/
+.green-button {
+    border: none;
+    color: black;
+    font-size: 14px;
+    background: #00c800;
+    padding: 0px 5px 0px 5px;
+    text-decoration: none;
+}
+
+.green-button:hover {
+    background: #00fa00;
+    text-decoration: none;
+}
+
+.glowing-button {
+    -webkit-border-radius: 0;
+    -moz-border-radius: 0;
+    border-radius: 0px;
+    border: rgb(0, 200, 0);
+    -webkit-box-shadow: 0px 1px 15px #00c800;
+    -moz-box-shadow: 0px 1px 15px #00c800;
+    box-shadow: 0px 1px 15px #00c800;
+    color: #00c800;
+    font-size: 16px;
+    background: #000000;
+    padding: 1px 20px 1px 20px;
+    text-decoration: none;
+}
+
+.glowing-button:hover {
+    background: #00c800;
+    text-decoration: none;
+    color: black;
+}
+/*------------------------------------------------------------*/
+
+
+/*/Classes*/
