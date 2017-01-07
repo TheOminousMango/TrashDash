@@ -28,8 +28,8 @@ if(Meteor.isServer) {
 
   Meteor.publish('mycans', function() {
 	try {
-		var email = Meteor.users.find({_id:this.userId}).fetch()[0].emails[0].address;
-		return Can.find({owner:email});
+		var username = Meteor.users.find({_id:this.userId}).fetch()[0].username;
+		return Can.find({owner:username});
 	} catch(e) {
 		return;
 	}

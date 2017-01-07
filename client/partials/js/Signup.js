@@ -9,7 +9,7 @@ Template.Signup.events({
 		
         Meteor.loginWithPassword(usernameVar, passwordVar, function (err) {
 			if (err) {
-				$( "#loginError" ).append( "<p>" + err + "</p>" );
+				$( "#loginError" ).html( "<p>" + err + "</p>" );
 			} else {
 				hideAll();
 			}
