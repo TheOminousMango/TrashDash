@@ -1,39 +1,26 @@
 <template name="CanCreator">
 	<!--Can.insert({ latitude: params.x, longitude: params.y, owner: params.owner, can_name: params.can_name }); -->
   <header>
-	<style>
-		.green-boarder {
-			border: 1px solid rgb(0, 200, 0);
-		}
-
-		.black-background {
-			background-color: black;
-		}
-
-		.green-text {
-			color: rgb(0, 200, 0);
-		}
-	</style>
+      <link href="https://fonts.googleapis.com/css?family=Bungee" rel="stylesheet">
+      <link href="https://fonts.googleapis.com/css?family=Press+Start+2P" rel="stylesheet">
   </header>
   <main>
-	<!-- {{> TopBar }} -->
+	{{> TopBar }}
 
 	<div id="can">
-		 <u>Add Can</u><br>
-		 Latitude:<br>
+		 <h1 class="press-to-start green-text center-text">Add Can</h1>
+		 <div class="green-text">Latitude: Longitude:</div>
 		 <!-- 80 was the original size for the lat and long boxes -->
-		 <textarea rows="1" style="width: 164px; resize: none" id="latitude" class="green-boarder black-background green-text"></textarea>
+		 <textarea rows="1" style="width: 90px; resize: none" id="latitude" class="green-border black-background green-text"></textarea>
+		 <textarea rows="1" style="width: 90px; resize: none" id="longitude" class="green-border black-background green-text"></textarea>
 		 <br>
-		 Longitude:<br>
-		 <textarea rows="1" style="width: 164px; resize: none" id="longitude" class="green-boarder black-background green-text"></textarea>
+		 <p class="green-text">Can Owner:</p>
+		 <textarea rows="1" style="width: 189px; resize: none" id="owner" class="green-border black-background green-text"></textarea>
 		 <br>
-		 Can Owner:<br>
-		 <textarea rows="1" style="width: 164px; resize: none" id="owner" class="green-boarder black-background green-text"></textarea>
+		 <p class="green-text">Can Name:</p>
+		 <textarea rows="1" style="width: 189px; resize: none;" id="can_name" class="green-border black-background green-text"></textarea>
 		 <br>
-		 Can Name:<br>
-		 <textarea rows="1" style="width: 164px; resize: none;" id="can_name" class="green-boarder black-background green-text"></textarea>
-		 <br>
-		 <button onclick="onAdd()"> Add Can </button>
+		 <button onclick="onAdd()" class="glowing-button"> Add Can </button>
 	 </div>
 
 	 <script>
