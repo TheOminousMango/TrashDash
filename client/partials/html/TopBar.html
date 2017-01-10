@@ -3,35 +3,55 @@
 		<link href="https://fonts.googleapis.com/css?family=Bungee" rel="stylesheet">
 	</head>
 
-	<!-- make bar hide or highlight button you're on -->
-
 	{{#if superuser}}
-		<div class="green-border">
-			<ul class="topmenu">
-				<li><a href="/"> Home </a></li>
-				<li><a href="/profile"> {{username}} </a></li>
-				<li><a href="/setRole"> Set Role </a></li>
-				<li><a href="/addCan"> Add Can </a></li>
-				<li><a href="/canMap"> Can Map </a></li>
-			</ul>
+		<span style="font-size:30px;cursor:pointer" onclick="openNav()" class="green-text align-right">&#9776;</span>
+
+		<div id="mySidenav" class="sidenav">
+		  <a href="javascript:void(0)" class="closebtn green-text" onclick="closeNav()">&times;</a>
+		  <a href="/" class="sidenav-a offcanvas-a"> Home </a>
+		  <a href="/profile" class="sidenav-a offcanvas-a"> {{username}} </a>
+		  <a href="/setRole" class="sidenav-a offcanvas-a"> Set Role </a>
+		  <a href="/addCan" class="sidenav-a offcanvas-a"> Add Can </a>
+		  <a href="/canMap" class="sidenav-a offcanvas-a"> Can Map </a>
+		  <!-- <a href="#" class="sidenav-a offcanvas-a"></a> -->
 		</div>
 	{{/if}}
+
 	{{#if canowner}}
-		<div class="green-border">
-			<ul class="topmenu">
-				<li><a href="/"> Home </a></li>
-				<li><a href="/profile"> {{username}} </a></li>
-				<li><a href="/viewCans"> View Cans </a></li>
-			</ul>
+		<span style="font-size:30px;cursor:pointer" onclick="openNav()" class="green-text align-right">&#9776;</span>
+
+		<div id="mySidenav" class="sidenav">
+		  <a href="javascript:void(0)" class="closebtn green-text" onclick="closeNav()">&times;</a>
+		  <a href="/" class="sidenav-a offcanvas-a"> Home </a>
+		  <a href="/profile" class="sidenav-a offcanvas-a"> {{username}} </a>
+		  <a href="/viewCans" class="sidenav-a offcanvas-a"> View Cans </a>
+		  <!-- <a href="#" class="sidenav-a offcanvas-a"></a> -->
 		</div>
 	{{/if}}
+
 	{{#if player}}
-		<div class="green-border">
-			<ul class="topmenu">
-				<li><a href="/"> Home </a></li>
-				<li><a href="/profile"> {{username}} </a></li>
-				<li><a href="/leaderboard"> Leaderboard </a></li>
-			</ul>
+		<span style="font-size:30px;cursor:pointer" onclick="openNav()" class="green-text align-right">&#9776;</span>
+
+		<div id="mySidenav" class="sidenav">
+		  <a href="javascript:void(0)" class="closebtn green-text" onclick="closeNav()">&times;</a>
+		  <a href="/" class="sidenav-a offcanvas-a"> Home </a>
+		  <a href="/profile" class="sidenav-a offcanvas-a"> {{username}} </a>
+		  <a href="/leaderboard" class="sidenav-a offcanvas-a"> Leaderboard </a>
+		  <!-- <a href="#" class="sidenav-a offcanvas-a"></a> -->
 		</div>
 	{{/if}}
+
+	<script>
+		function openNav() {
+		    document.getElementById("mySidenav").style.width = "250px";
+		    document.getElementById("main").style.marginLeft = "250px";
+		    document.body.style.backgroundColor = "rgba(0,0,0,0.4)";
+		}
+
+		function closeNav() {
+		    document.getElementById("mySidenav").style.width = "0";
+		    document.getElementById("main").style.marginLeft= "0";
+		    document.body.style.backgroundColor = "white";
+		}
+	</script>
 </template>
