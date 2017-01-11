@@ -1,0 +1,25 @@
+<template name="Signup">	
+	<div class="signupmain">
+      <form id="signup" class="signup">
+	  	<div class="form-group">
+		  <label for="username" class="green-text">Username</label><br>
+          <input type="username" name="username" class="form-control green-border black-background green-text">
+		</div>
+        <div class="form-group">
+          <label for="emailAddress" class="green-text">Email Address</label><br>
+          <input type="email" name="emailAddress" class="form-control green-border black-background green-text">
+        </div>
+        <div class="form-group">
+          <label for="password" class="green-text">Password</label><br>
+          <input type="password" name="password" class="form-control green-border black-background green-text">
+        </div>
+        <div class="form-group">
+          <input type="submit" class="subtn glowing-button" value="Submit">
+        </div>
+      </form>
+    </div>
+	
+	<button onclick="Router.go('/');"> Home </button>
+	<button onclick="Router.go('/login');"> Log In </button>
+	
+</template>

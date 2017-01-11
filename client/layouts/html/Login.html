@@ -1,0 +1,32 @@
+<template name="Login">
+
+	<style>
+		#loginError {
+			color: red;
+		}
+	</style>
+
+    <div class="loginmain">
+      <form id="login" class="login">
+	  	<div class="form-group">
+		  <label for="username" class="green-text">Username</label><br>
+          <input type="username" name="loginusername" class="form-control green-border black-background green-text">
+		</div>
+        <div class="form-group">
+          <label for="password" class="green-text">Password</label><br>
+          <input type="password" name="loginpassword" class="form-control green-border black-background green-text">
+        </div>
+        <div class="form-group">
+          <input type="submit" class="lgbtn glowing-button" value="Submit">
+        </div>
+      </form>
+
+	  <button class="glowing-button" onclick="Router.go('reset');"> Need Help Signing In? </button>
+
+	  <div id="loginError"></div>
+	  
+    </div>
+	
+	<button onclick="Router.go('/');"> Home </button>
+	<button onclick="Router.go('/signup');"> Sign Up </button>
+</template>

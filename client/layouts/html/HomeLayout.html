@@ -6,7 +6,13 @@
     <main>
 	    {{> TopBar}}
 
-	    {{> Signup}}
+			
+		{{#unless username}}
+			<div id="login-signup">
+				<button class="green-button bungee align-right black-border" onclick="Router.go('/signup');">Sign Up</button>
+				<button class="green-button bungee align-right black-border" onclick="Router.go('/login');">Log In</button>
+			</div>
+		{{/unless}}
         <h1 class="center-text press-to-start green-text"> Home Page </h1>
     </main>
 </template>
