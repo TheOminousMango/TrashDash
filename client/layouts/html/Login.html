@@ -1,32 +1,32 @@
 <template name="Login">
+	<header>
+		<link href="https://fonts.googleapis.com/css?family=Press+Start+2P" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css?family=Bungee" rel="stylesheet">
+	</header>
 
-	<style>
-		#loginError {
-			color: red;
-		}
-	</style>
+	<main>
+		<button class="green-button bungee align-right black-border" onclick="Router.go('/signup');"> Sign Up </button>
+		<button class="green-button bungee align-right black-border" onclick="Router.go('/');"> Home </button>
 
-    <div class="loginmain">
-      <form id="login" class="login">
-	  	<div class="form-group">
-		  <label for="username" class="green-text">Username</label><br>
-          <input type="username" name="loginusername" class="form-control green-border black-background green-text">
-		</div>
-        <div class="form-group">
-          <label for="password" class="green-text">Password</label><br>
-          <input type="password" name="loginpassword" class="form-control green-border black-background green-text">
-        </div>
-        <div class="form-group">
-          <input type="submit" class="lgbtn glowing-button" value="Submit">
-        </div>
-      </form>
+	    <div class="loginmain">
+	    	<form id="login" class="login">
+		  		<div class="form-group">
+			  		<label for="username" class="green-text">Username</label><br>
+	          		<input type="username" name="loginusername" class="form-control green-border black-background green-text">
+				</div>
+	        	<div class="form-group">
+	          		<label for="password" class="green-text">Password</label><br>
+	          		<input type="password" name="loginpassword" class="form-control green-border black-background green-text">
+	        	</div>
+	        	<div class="form-group">
+	          		<input type="submit" class="lgbtn glowing-button" value="Submit">
+	        	</div>
+	      	</form>
 
-	  <button class="glowing-button" onclick="Router.go('reset');"> Need Help Signing In? </button>
+		  <button class="glowing-button" onclick="Router.go('reset');"> Need Help Signing In? </button>
 
-	  <div id="loginError"></div>
-	  
-    </div>
-	
-	<button onclick="Router.go('/');"> Home </button>
-	<button onclick="Router.go('/signup');"> Sign Up </button>
+		  <div id="loginError"></div>
+
+	    </div>
+	</main>
 </template>
