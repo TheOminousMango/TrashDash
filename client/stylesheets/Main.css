@@ -35,6 +35,11 @@ body {
     text-align: center;
 }
 
+.center-object {
+    display: block;
+    margin: auto;
+}
+
 .text-right {
     text-align: right;
 }
@@ -206,5 +211,9 @@ body {
 #main {
     transition: margin-left .5s;
     padding: 16px;
+}
+
+#noop {
+    /*NOOOOOOP!*/
 }
 /*/Ids*/
