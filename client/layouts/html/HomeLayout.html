@@ -4,15 +4,24 @@
         <link href="https://fonts.googleapis.com/css?family=Bungee" rel="stylesheet">
     </header>
     <main>
-	    {{> TopBar}}
+		<body>
+			{{> TopBar}}
 
-			
-		{{#unless username}}
-			<div id="login-signup">
-				<button class="green-button bungee align-right black-border" onclick="Router.go('/signup');">Sign Up</button>
-				<button class="green-button bungee align-right black-border" onclick="Router.go('/login');">Log In</button>
-			</div>
-		{{/unless}}
-        <h1 class="center-text press-to-start green-text"> Home Page </h1>
-    </main>
+				
+			{{#unless username}}
+				<div id="login-signup">
+					<button class="green-button bungee align-right black-border" onclick="Router.go('/signup');">Sign Up</button>
+					<button class="green-button bungee align-right black-border" onclick="Router.go('/login');">Log In</button>
+				</div>
+			{{/unless}}
+			<h1 class="center-text press-to-start green-text"> Home Page </h1>
+			<img border="0" src="/HomePage.png" style="max-width: 100%;">
+				
+			<p style="color: rgb(0, 200, 0);" class="center-text"> 
+				Syracuse is littered with garbage. And why wouldn't it be? I mean what do you, the user, even get out of it?
+				<br>
+				Well were about to change that. Earn points for the things you need simply for throwing out trash.
+			</p>
+		</body>
+   </main>
 </template>
