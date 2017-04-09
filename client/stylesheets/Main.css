@@ -3,6 +3,11 @@ body {
     background: black;
     font-family: 'Bungee', cursive;
 }
+
+@media screen and (max-height: 450px) {
+  .sidenav {padding-top: 15px;}
+  .sidenav a {font-size: 18px;}
+}
 /*/General*/
 
 /*Classes*/
@@ -38,6 +43,12 @@ body {
     float: right;
 }
 
+.bigger-text-feild {
+    height: 35px;
+    width: 250px;
+    font-size: 18px;
+}
+
 .main {
     text-align:center;
     width: 350px;
@@ -52,6 +63,10 @@ body {
 .bungee {
     font-family: 'Bungee', cursive;
 }
+
+.text-25px {
+    font-size: 26px;
+}
 /*------------------------------------------------------------*/
 .green-button {
     border: none;
@@ -63,6 +78,20 @@ body {
 }
 
 .green-button:hover {
+    background: #00fa00;
+    text-decoration: none;
+}
+
+.submit-btn {
+    border: none
+    color: #000;
+    font-size: 14px;
+    background: #00c800;
+    padding: 10px 145px 10px 145px;
+    text-decoration: none;
+}
+
+.submit-btn:hover {
     background: #00fa00;
     text-decoration: none;
 }
@@ -147,15 +176,7 @@ body {
     margin-left: 50px;
 }
 
-#main {
-    transition: margin-left .5s;
-    padding: 16px;
-}
 
-@media screen and (max-height: 450px) {
-  .sidenav {padding-top: 15px;}
-  .sidenav a {font-size: 18px;}
-}
 /*------------------------------------------------------------*/
 
 
@@ -180,5 +201,10 @@ body {
 
 #loginError {
     color: red;
+}
+
+#main {
+    transition: margin-left .5s;
+    padding: 16px;
 }
 /*/Ids*/
