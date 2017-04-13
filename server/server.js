@@ -144,7 +144,7 @@ if(Meteor.isServer) {
 			}
 		  }).run();
 	    });
-      }).listen(5000);
+      }).listen(80);
 	  
 	  process.env.MAIL_URL="smtp://trashdash.project@gmail.com:Msj4LoG5TH@smtp.gmail.com:587";
 
