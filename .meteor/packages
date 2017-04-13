@@ -28,3 +28,7 @@ accounts-ui@1.1.9
 accounts-password@1.3.3
 iron:router
 browser-policy
+meteorhacks:npm
+
+
+npm-container

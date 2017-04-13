@@ -47,7 +47,7 @@ if(Meteor.isServer) {
 	}
   });
 
-  Meteor.methods({
+  Meteor.methods({	  
 		sendVerificationLink: function() {
 			let userId = Meteor.userId();
 			if ( userId ) {
@@ -108,8 +108,43 @@ if(Meteor.isServer) {
 			}
 		}
 	});
-
+  
+  net = Meteor.npmRequire('net');	
+  fib = Meteor.npmRequire('fibers');	
+	
   Meteor.startup(function() {
+	  
+	  net.createServer(function (socket) {
+		socket.on('data', function (data) {	
+		  fib(function() {  
+		    try {	
+			
+				var res = "false";
+			
+				params = (data.toString()).split("&");
+				cn = params[1];
+				pw = params[2];
+			
+				var can = Can.find({ can_name : cn }).fetch()[0];
+				var password = {digest: Package.sha.SHA256(pw), algorithm: 'sha-256'};
+				var user = Meteor.users.find({ username: can.owner }).fetch()[0];
+				var result = Accounts._checkPassword(user, password);
+				
+				var correct = result.error == null;
+				
+				res = correct + "";
+				
+				socket.write(res,"UTF-8");
+				socket.destroy();
+				
+			} catch(err) { 
+				res = false + "";
+				socket.write(res,"UTF-8");
+				socket.destroy();
+			}
+		  }).run();
+	    });
+      }).listen(5000);
 	  
 	  process.env.MAIL_URL="smtp://trashdash.project@gmail.com:Msj4LoG5TH@smtp.gmail.com:587";
 
