@@ -24,6 +24,19 @@ QrCodeSchema = new SimpleSchema({
       var time = Math.round((new Date().getTime() / 1000) + 60);
       return(time);
     }
+  },
+  Value: {
+	  type: Number,
+	  label: "Value",
+	  autoValue: function() {
+		  var val = ""
+		  
+		  for(var i = 0; i < 4; i++) {
+			  val += Math.round(Math.random()).toString();
+		  }
+		  
+		  return val;
+	  }
   }
 });
 
