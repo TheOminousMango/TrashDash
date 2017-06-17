@@ -26,13 +26,13 @@ QrCodeSchema = new SimpleSchema({
     }
   },
   Value: {
-	  type: Number,
+	  type: String,
 	  label: "Value",
 	  autoValue: function() {
 		  var val = ""
 		  
 		  for(var i = 0; i < 4; i++) {
-			  val += Math.round(Math.random()).toString();
+			  val += Math.round(Math.random() * 9).toString();
 		  }
 		  
 		  return val;

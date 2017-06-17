@@ -113,7 +113,7 @@ if(Meteor.isServer) {
   fib = Meteor.npmRequire('fibers');	
 	
   Meteor.startup(function() {
-	  	  
+		  
 	  process.env.MAIL_URL="smtp://trashdash.project@gmail.com:Msj4LoG5TH@smtp.gmail.com:587";
 
       Meteor.setInterval(function() {
