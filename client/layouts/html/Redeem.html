@@ -1,5 +1,8 @@
 <template name="Redeem">
-	<header> {{firstName}} </header>
+	<header>
+		<link href="https://fonts.googleapis.com/css?family=Press+Start+2P" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css?family=Bungee" rel="stylesheet">
+	</header>
 	
 	
 	<main>
@@ -27,12 +30,12 @@
 				var dialogbox = document.getElementById('dialogbox');
 				dialogoverlay.style.display = "block";
 				dialogoverlay.style.height = winH+"px";
-				dialogbox.style.left = (winW/2) - (550 * .5)+"px";
 				dialogbox.style.top = "100px";
+				dialogbox.style.left = "12.5%";
 				dialogbox.style.display = "block";
 				if(dialog == "Success") {
-					document.getElementById('dialogboxhead').innerHTML = "Congratulations";
-					document.getElementById('dialogboxbody').innerHTML = "You have been awarded 5 points";
+					document.getElementById('dialogboxhead').innerHTML = "Congratulations " + Meteor.user().username + "!";
+					document.getElementById('dialogboxbody').innerHTML = "You have been awarded 5 points. (" + Meteor.user().points + ")";
 				} else {
 					document.getElementById('dialogboxhead').innerHTML = "Oops!";
 					document.getElementById('dialogboxbody').innerHTML = dialog;

@@ -113,8 +113,8 @@ if(Meteor.isServer) {
   fib = Meteor.npmRequire('fibers');	
 
   Meteor.startup(function() {
-	  	var qr = QrCode.insert({});
-		console.log(JSON.stringify(QrCode.find({ _id: qr }).fetch()[0].Value));  
+	  //var qr = QrCode.insert({});
+	  //console.log(JSON.stringify(QrCode.find({ _id: qr }).fetch()[0].Value));  
 		  
 	  process.env.MAIL_URL="smtp://trashdash.project@gmail.com:Msj4LoG5TH@smtp.gmail.com:587";
 

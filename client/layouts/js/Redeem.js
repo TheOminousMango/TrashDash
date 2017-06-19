@@ -3,7 +3,5 @@ Deps.autorun(function(){
 });
 
 Template.Redeem.helpers({
-  firstName: function() {
-    return Meteor.user().points;
-  }
+
 });

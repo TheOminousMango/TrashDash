@@ -1,7 +1,7 @@
 #dialogoverlay{
 	display: none;
 	opacity: .8;
-	position: fixed;
+	position: absolute;
 	top: 0px;
 	left: 0px;
 	background: #FFF;
@@ -9,15 +9,16 @@
 	z-index: 10;
 }
 #dialogbox{
+	margin: auto;
 	display: none;
-	position: fixed;
+	position: absolute;
 	background: #000;
 	border-radius:7px; 
-	width:550px;
+	width:75%;
 	z-index: 10;
 }
 
-#prompt_value1{
+#prompt_value1 {
 	background: #000000;
 	color: #00FF00;
 	font-family:'Press Start 2P';
