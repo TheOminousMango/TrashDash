@@ -54,13 +54,13 @@ if(Meteor.isServer) {
 				return Accounts.sendVerificationEmail( userId );
 			}
 	    },
-		Redeem: function (id) {
+		Redeem: function (code) {
 		  if(!Meteor.user()) {
 			return "Please Login"
 		  } else {
-			qr = QrCode.find({_id:id}).fetch();
+			qr = QrCode.find({ Value:code }).fetch();
 			if(qr.length > 0) {
-			  QrCode.remove({_id:qr[0]._id});
+			  QrCode.remove({ Value:qr[0].Value });
 			  var my_points = Meteor.user().points;
 			  Meteor.users.update({_id:Meteor.user()._id}, { $set: { points:my_points + 5 } });
 			  return "Success"
@@ -111,8 +111,10 @@ if(Meteor.isServer) {
   
   net = Meteor.npmRequire('net');	
   fib = Meteor.npmRequire('fibers');	
-	
+
   Meteor.startup(function() {
+	  	var qr = QrCode.insert({});
+		console.log(JSON.stringify(QrCode.find({ _id: qr }).fetch()[0].Value));  
 		  
 	  process.env.MAIL_URL="smtp://trashdash.project@gmail.com:Msj4LoG5TH@smtp.gmail.com:587";
 

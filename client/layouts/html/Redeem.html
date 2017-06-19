@@ -1,9 +1,64 @@
 <template name="Redeem">
-  <script>
-    function validate(code) {
-      Meteor.call('Redeem', code, function(err,response) {
-        alert(response);
-      });
-    };
-  </script>
+	<header> {{firstName}} </header>
+	
+	
+	<main>
+
+		<div id="dialogoverlay"></div>
+		<div id="dialogbox">
+		  <div>
+			<div id="dialogboxhead"></div>
+			<div id="dialogboxbody"></div>
+			<div id="dialogboxfoot"></div>
+		  </div>
+		</div>
+		
+		<script> 
+		function onOK() {
+			Alert.ok() 
+			Router.go('/');
+		}
+		
+		function CustomAlert(){
+			this.render = function(dialog){
+				var winW = window.innerWidth;
+				var winH = window.innerHeight;
+				var dialogoverlay = document.getElementById('dialogoverlay');
+				var dialogbox = document.getElementById('dialogbox');
+				dialogoverlay.style.display = "block";
+				dialogoverlay.style.height = winH+"px";
+				dialogbox.style.left = (winW/2) - (550 * .5)+"px";
+				dialogbox.style.top = "100px";
+				dialogbox.style.display = "block";
+				if(dialog == "Success") {
+					document.getElementById('dialogboxhead').innerHTML = "Congratulations";
+					document.getElementById('dialogboxbody').innerHTML = "You have been awarded 5 points";
+				} else {
+					document.getElementById('dialogboxhead').innerHTML = "Oops!";
+					document.getElementById('dialogboxbody').innerHTML = dialog;
+				}
+				document.getElementById('dialogboxfoot').innerHTML = '<button onclick="onOK()" class="DialogueButton">OK</button>';
+			}
+			this.ok = function(){
+				document.getElementById('dialogbox').style.display = "none";
+				document.getElementById('dialogoverlay').style.display = "none";
+			}
+		}
+
+		var Alert = new CustomAlert();
+		</script>
+
+		<script>
+			function validate(code) {
+			  Meteor.call('Redeem', code, function(err,response) {
+				Alert.render(response);
+				//alert("test");
+			  });
+			};
+			
+			validate("{{code}}"); 
+		</script>
+		
+	</main>
+	
 </template>
