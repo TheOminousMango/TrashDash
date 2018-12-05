@@ -34,7 +34,7 @@
 				dialogbox.style.left = "12.5%";
 				dialogbox.style.display = "block";
 				if(dialog == "Success") {
-					document.getElementById('dialogboxhead').innerHTML = "Congrats" + Meteor.user().username + "!";
+					document.getElementById('dialogboxhead').innerHTML = "Congrats " + Meteor.user().username + "!";
 					document.getElementById('dialogboxbody').innerHTML = "You have been awarded 5 points. (" + Meteor.user().points + ")";
 				} else {
 					document.getElementById('dialogboxhead').innerHTML = "Oops!";
