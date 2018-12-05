@@ -55,7 +55,7 @@ if(Meteor.isServer) {
 			}
 	    },
 		Redeem: function (code) {
-		  if(!Meteor.user()) {
+		  /*if(!Meteor.user()) {
 			return "Please Login"
 		  } else {
 			qr = QrCode.find({ Value:code }).fetch();
@@ -67,7 +67,10 @@ if(Meteor.isServer) {
 			} else {
 			  return "Invalid Code";
 			}
-		  }
+		  }*/
+		  	var my_points = Meteor.user().points;
+			Meteor.users.update({_id:Meteor.user()._id}, { $set: { points:my_points + 5 } });
+			return "Success"
 		},
 
 		SetRole: function(params) {
